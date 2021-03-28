@@ -70,9 +70,4 @@ public class FollowPlayer : MonoSingleton<FollowPlayer>
             cramaPosx = rightBorder[0].position.x - distance;
         }        
     }
-
-    public void test()
-    {
-        print("crama");
-    }
 }

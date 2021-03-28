@@ -96,17 +96,17 @@ public class PlayerMove : View
     {
         if (collision.CompareTag(Tag.Picked))
         {
-            FollowPlayer.Instance.test();
-            Debug.Log(collision);
+            //Debug.Log(collision);
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Destroy(collision.gameObject);
                 gm.PickedStateChange(collision.name);
+                //移除相机障碍
+                bool remove = false ;
                 if (gm.PickedObj.Count % 2 == 0)
                 {
-                    FollowPlayer.Instance.ChangeState();
-                    FollowPlayer.Instance.test();
+                    remove = true;
                 }
+                UIControl.Instance.PickedAnima(collision.gameObject,remove);
             }
         }
     }
