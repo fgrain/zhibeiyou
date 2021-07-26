@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ObjectPool : MonoSingleton<ObjectPool>
 {
-    string ResourceDir = "";
+    public string ResourceDir = "";
     public Dictionary<string, SubPool> m_pools = new Dictionary<string, SubPool>();
 
     //取出物体
-    public GameObject Spawn(string name,Transform parent)
+    public GameObject Spawn(string name, Transform parent)
     {
         SubPool pool = null;
         if (!m_pools.ContainsKey(name))
@@ -34,6 +34,7 @@ public class ObjectPool : MonoSingleton<ObjectPool>
         }
         pool.UnSpawn(go);
     }
+
     //回收全部物体
     public void UnSpawnAll()
     {
@@ -42,8 +43,9 @@ public class ObjectPool : MonoSingleton<ObjectPool>
             p.UnSpawnAll();
         }
     }
+
     //创建新池子
-    void CreatPool(string name,Transform parent)
+    private void CreatPool(string name, Transform parent)
     {
         //游戏物体所在资源目录
         string path = ResourceDir + "/" + name;

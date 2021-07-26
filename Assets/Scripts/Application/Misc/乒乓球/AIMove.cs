@@ -5,12 +5,12 @@ using UnityEngine;
 public class AIMove : BeatMove
 {
     private Vector3 AIspeed;
-    
+
     // Start is called before the first frame update
     private void Awake()
-    {      
+    {
         Init();
-    }   
+    }
 
     private void FixedUpdate()
     {
@@ -21,7 +21,7 @@ public class AIMove : BeatMove
         else PositionUpdate();
     }
 
-    void PositionUpdate()
+    private void PositionUpdate()
     {
         if (rectTransform.localRotation != initRotation)
         {
